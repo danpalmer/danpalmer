@@ -1,0 +1,9 @@
+{
+    "version": 1.0,
+    "namespace": "danpalmer",
+    "names": {
+        "/Dockerfile.base": "danpalmer/danpalmer.base",
+        "/Dockerfile.deploy": "danpalmer/danpalmer",
+        "/Dockerfile.run": "danpalmer/danpalmer.run"
+    }
+}

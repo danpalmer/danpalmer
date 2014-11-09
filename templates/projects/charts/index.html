@@ -1,0 +1,111 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block scripts %}
+	{% load django_google_charts %}
+	{% django_google_chart_js %}
+{% endblock %}
+
+{% block body_container %}
+	<div class="row page-content">
+		<div class="col-md-12">
+			<h1>django-google-charts</h1>
+			<div class="row">
+				<div class="col-md-6 col-sm-12">
+					<p class="lead">
+						Graphing data is almost always beneficial, but maintaining many charts can quickly become unmanageable when dealing with Python for querying and formatting data, JavaScript for graph rendering and styling, and HTML for markup.
+					</p>
+					<p>
+						<em>django-google-charts</em> attempts to provide an easy to use API that will fit in to any Django project and allow rapid creation of graphs using Google's Charts JavaScript library, following good security practices, encouraging re-use of code,and without the overhead of maintaining JavaScript.
+					</p>
+					<iframe src="https://ghbtns.com/github-btn.html?user=danpalmer&repo=django-google-charts&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+					<iframe src="https://ghbtns.com/github-btn.html?user=danpalmer&repo=django-google-charts&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+					<br/>
+					<a href="https://travis-ci.org/danpalmer/django-google-charts">
+						<img src="https://travis-ci.org/danpalmer/django-google-charts.svg?branch=master" alt="Build Status">
+					</a>
+					<a href="https://landscape.io/github/danpalmer/django-google-charts/master">
+						<img src="https://landscape.io/github/danpalmer/django-google-charts/master/landscape.svg" alt="Code Health">
+					</a>
+					<a href="https://coveralls.io/r/danpalmer/django-google-charts">
+						<img src="https://coveralls.io/repos/danpalmer/django-google-charts/badge.svg" alt="Coverage Status">
+					</a>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					{{ chart }}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<hr>
+		</div>
+		<div class="col-md-12">
+			<h3>Usage</h3>
+			<div class="row">
+				<div class="col-md-6 col-sm-12">
+					<p>
+						The graph above can be created in the following 3 steps...
+					</p>
+					<ol>
+						<li>
+							<p>
+								<strong>First define the chart</strong><br>
+								A good place to put this is in <code>charts.py</code> in your application. The chart must inherit from <code>django_google_charts.charts.Chart</code>, and must define a chart slug, columns, and a method of getting the data.
+							</p>
+						</li>
+						<li>
+							<p>
+								<strong>Create a view that renders a chart</strong><br>
+								Instantiate a chart in the view and pass it into a template rendering context. Charts can be subclassed, and parameterised.
+							</p>
+						</li>
+						<li>
+							<p>
+								<strong>Render the chart into the template</strong><br>
+								...and include the required static assets using the provided template tag.
+							</p>
+						</li>
+					</ol>
+					<p>
+						To configure the display of the charts, set the <code>options</code> attribtue on your chart to be a dictionary containing the configuration you need, as per the <a href="https://developers.google.com/chart/">Google Charts</a> chart options.
+					</p>
+					<br>
+					<h3>Installation</h3>
+					<p>
+						To install, simply add the package to your Python path (PyPi installation coming soon), and add <code>django_google_charts</code> to your <code>INSTALLED_APPS</code>. jQuery or a compatible equivalent must be provided in the pages for rendering charts.
+					</p>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<script src="https://gist.github.com/danpalmer/440c6ad184fb52691945.js"></script>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<hr>
+		</div>
+		<div class="col-md-12">
+			<h3>Benefits</h3>
+			<div class="row">
+				<div class="col-md-6 col-sm-12">
+					<h5>Don't Repeat Yourself</h5>
+					<p>
+						By packaging up the code required to generate your graph into a class, rather than querying in a view function or class-based-view method, you can re-use graphs between mutliple views, for example, large dashboards on TVs in your office, and internal metrics reports.
+					</p>
+					<p>
+						As charts are just a class with a simple API, you can subclass them, or create abstract base classes that contain common functionality. Do most cohort reports look the same? They probably share quite a lot of code.
+					</p>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<h5>Secure</h5>
+					<p>
+						Using Django's templating engine to render JavaScript arrays and objects into the page might be a really quick way of getting up and running, but it presents security challenges relating to data sanitisation, and prevents the use of strict Content Security Policies.
+					</p>
+					<p>
+						<code>django-google-charts</code> serialises all data to JSON, rather than <em>JavaScript</em>. This allows a CSP that disallows embedded JavaScript execution to be used, therefore protecting you from XSS attacks both in chart data, and in other page elements. Check out <a href="https://github.com/sdelements/django-security"><code>django-security</code> and the <code>ContentSecurityPolicyMiddleware</code></a> for a quick way to test and enforce content security policies.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

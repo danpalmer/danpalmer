@@ -1,0 +1,38 @@
+FROM ubuntu:xenial
+
+ENV PYTHONUNBUFFERED 1
+
+# Install dependencies, without anything we don't explicitly ask for
+RUN apt-get update \
+    && apt-get install -qyy \
+    -o APT::Install-Recommends=false -o APT::Install-Suggests=false \
+        build-essential \
+        libcairo2 \
+        libffi-dev \
+        libffi6 \
+        libfreetype6-dev \
+        libgdk-pixbuf2.0-0 \
+        libjpeg8-dev \
+        liblcms2-dev \
+        libpango1.0-0 \
+        libpq-dev \
+        libtiff5-dev \
+        libwebp-dev \
+        libxml2-dev \
+        libxslt-dev \
+        openssl \
+        python3-dev \
+        python3-venv \
+        shared-mime-info \
+        zlib1g-dev \
+    && apt-get clean
+
+RUN mkdir /venv
+RUN python3.5 -m venv /venv
+
+ENV PATH "/venv/bin/:$PATH"
+
+RUN pip install pip==8.1.1 setuptools wheel
+
+ADD requirements/base.txt /tmp/requirements-base.txt
+RUN pip install -r /tmp/requirements-base.txt

@@ -1,0 +1,39 @@
+version: '2'
+services:
+  db:
+    image: postgres:9.5.2
+    environment:
+      POSTGRES_DB: 'danpalmer'
+      POSTGRES_USER: 'danpalmer'
+      POSTGRES_PASSWORD: 'password'
+    volumes:
+      - /var/lib/postgresql/data
+
+  web:
+    image: danpalmer/danpalmer.run
+    container_name: web
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    links:
+      - db
+    environment:
+      DATABASE_HOST: 'db'
+      DATABASE_NAME: 'danpalmer'
+      DATABASE_USER: 'danpalmer'
+      DATABASE_PASSWORD: 'password'
+
+  test:
+    image: danpalmer/danpalmer.run
+    container_name: test
+    command: python manage.py test
+    volumes:
+      - .:/app
+    links:
+      - db
+    environment:
+      DATABASE_HOST: 'db'
+      DATABASE_NAME: 'danpalmer'
+      DATABASE_USER: 'danpalmer'
+      DATABASE_PASSWORD: 'password'

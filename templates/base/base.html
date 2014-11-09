@@ -1,0 +1,59 @@
+{% load bootstrap3 %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="{% static "js/jquery-2.1.1.js" %}" type="text/javascript" charset="utf-8"></script>
+
+		{% bootstrap_css %}
+		{% bootstrap_javascript %}
+
+		<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="{% static "css/base.css" %}">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	</head>
+	<body>
+		{% block nav %}
+			<nav class="navbar navbar-fixed-top {% block nav_classes %}navbar-default{% endblock %}" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+							<span class="sr-only">Toggle Navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="{{ settings.SITE_URL }}">Dan Palmer</a>
+					</div>
+					<div class="collapse navbar-collapse" id="menu">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="{% url "blog:index" %}">Blog</a></li>
+							<li><a href="{% url "projects:index" %}">Projects</a></li>
+							<li><a href="{% url "home:cv" %}">CV</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		{% endblock %}
+		{% block body %}
+			<div class="container navbar-offset">
+				{% bootstrap_messages %}
+				{% block body_container %}
+				{% endblock %}
+			</div>
+		{% endblock %}
+		{% block footer %}
+			<footer>
+				<div class="container">
+					{% block footer_container %}
+						{% include "base/_footer.html" %}
+					{% endblock %}
+				</div>
+			</footer>
+		{% endblock %}
+		{% include "base/_analytics.html" %}
+		{% block scripts %}{% endblock %}
+	</body>
+</html>

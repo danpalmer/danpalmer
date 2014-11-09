@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+
+{% block body_container %}
+	<div class="row page-content">
+		<div class="col-md-6 col-md-offset-3 col-sm-12">
+			<h3>
+				Blog Posts
+				<small class="pull-right">
+					<a href="{% url "blog:feed" %}">RSS Feed</a>
+				</small>
+			</h3>
+			<hr/>
+			{% for post in posts %}
+				{% include "blog/_post_list_item.html" %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

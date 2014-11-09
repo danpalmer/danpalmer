@@ -1,0 +1,155 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block scripts %}
+	<script src="{% static "js/complexify/jquery.complexify.banlist.js" %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static "js/complexify/jquery.complexify.js" %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static "js/complexify/demo.js" %}" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+
+{% block body_container %}
+	<div class="row page-content">
+		<div class="col-md-12">
+			<h1>jQuery Complexify</h1>
+			<div class="row">
+				<div class="col-md-6 col-sm-12">
+					<p class="lead">
+						Websites have a responsibility to accurately inform users of password strength, both to better secure data, and to educate about users of what constitutes a good password.
+					</p>
+					<p>
+						Complexify aims to provide a good measure of password complexity for websites to use both for giving hints to users in the form of strength bars, and for <em>casually</em> enforcing a minimum complexity for security reasons.
+					</p>
+					<p>
+						This plugin only provides client-side validation, and should be combined with some server-side sanity checking. If you want a full-blown Complexify implementation for the server, check out the <a href="#ports">list of ports</a>.
+					</p>
+					<iframe src="https://ghbtns.com/github-btn.html?user=danpalmer&repo=jquery.complexify.js&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+					<iframe src="https://ghbtns.com/github-btn.html?user=danpalmer&repo=jquery.complexify.js&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<div id="complexify">
+						<div classs="form">
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input type="password" class="form-control" id="password">
+							</div>
+						</div>
+						<div class="progress">
+							<div id="complexity-bar" class="progress-bar" role="progressbar">
+							</div>
+						</div>
+						<p>
+							<h1 id="complexity" class="pull-right">0%</h1>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<hr>
+		</div>
+		<div class="col-md-12">
+			<h3>Usage</h3>
+			<div class="row">
+				<div class="col-md-6 col-sm-12">
+					<p>
+						Complexify is implemented as a jQuery function that can be called on input fields. The function takes options and a callback that will be called with the results of the validation.
+					</p>
+					<p>
+						The <code>valid</code> argument passed to your callback function is a boolean that indicates whether the password met the minimum level of complexity. The complexity argument is a percentage where 100% represents a 'very good' password (approximately 25 random characters).
+					</p>
+					<p>
+						For details about the extra options that can be included to customise the behaviour of Complexify, see the <a href="#documentation">documentation</a> below.
+					</p>
+					<p class="small text-muted">
+						jQuery must be included on the page before Complexify.
+					</p>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<script src="https://gist.github.com/4288084.js"></script>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<hr>
+		</div>
+		<div class="col-md-6">
+			<h3>How it works</h3>
+			<p>
+				Complexify's default settings will enforce a minimum level of complexity that would mean brute-forcing should take ~600 years on a commodity desktop machine. The 'perfect' password used to scale the complexity percentage would take 3x10^33 years. These are equivalent to a 12 character password with uppercase, lowercase and numbers included, and a 25 character password with uppercase, lowercase, numbers and a wide range of punctuation.
+			</p>
+		</div>
+		<div class="col-md-6">
+			<h3>Unicode</h3>
+			<p>
+				Complexify supports Unicode and will add appropriate complexity for the size of character set included in a password.
+			</p>
+			<p>
+				For example, as there are 96 Hiragana characters defined in the Unicode specification, including one of these will increase the brute-force complexity by 96.
+			</p>
+			<p>
+				The rationale behind this is that in an attacker were wanting to include Japanese passwords in his attack, he/she may choose to include the Hiragana set in his/her attack, but not the Katakana set. Complexify divides Unicode into 94 appropriately grouped sets.
+			</p>
+		</div>
+		<div class="col-md-12">
+			<hr>
+		</div>
+		<div class="col-md-12">
+			<h3 id="documentation">Documentation</h3>
+			<div class="row">
+				<div class="col-md-6">
+					<p>
+						The following options can be passed into the Complexify initialiser to customise its behaviour.
+					</p>
+					<h4><code>bannedPasswords</code></h4>
+					<p>
+						A list of passwords that will always return 0% complexity. This can also be achieved by setting a gloabl variable <code>COMPLEXIFY_BANLIST</code>.
+					</p>
+					<h4><code>minimumChars</code></h4>
+					<p>
+						The minimum number of characters that the password must have in order to be valid. Defaults to 8.
+					</p>
+					<h4><code>strengthScaleFactor</code></h4>
+					<p>
+						This is a scale factor applied to the calculated password strength. It can be used to increase the strength of passwords required. Defaults to 1.
+					</p>
+				</div>
+				<div class="col-md-6">
+					<h4><code>banmode</code></h4>
+					<p>
+						Either:
+						<ul>
+							<li><code>strict</code>: If a password is contained in the banned list, or contained in any item of the banned list, the password will fail. This means that "123456" will fail as it is in the banned list, but "123" and "345" will also fail as they are substrings of a password in the list.</li>
+							<li><code>loose</code>: If a password exactly matches one in the banned list, the password will fail.</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<hr>
+		</div>
+		<div class="col-md-6 col-sm-12">
+			<h3 id="ports">Complexify Ports</h3>
+			<p>Several people have kindly open-sourced their implementations of this algorithm for other platforms:</p>
+			<ul>
+				<li>Mert Dümenci <a href="https://github.com/mertdumenci/Complexify-ObjC">Complexify-Objc</a></li>
+				<li>Andrey Kislyuk <a href="https://github.com/kislyuk/node-complexify">node-complexify</a></li>
+				<li>Michael Crumley <a href="https://github.com/mcrumley/php-complexify/">php-complexify</a></li>
+				<li>Maciej Podsiedlak <a href="https://github.com/Kraku/angular-complexify/">angular-complexify</a></li>
+			</ul>
+		</div>
+		<div class="col-md-6 col-sm-12">
+			<h3>Version History</h3>
+			<ul>
+				<li><strong>0.5.1</strong> - Bugfixes and style changes.</li>
+				<li><strong>0.5</strong> - Strict mode checking against the banned passwords list is now much more strict, comparing case-insensitively, and disallowing any sequence included in a banned password.</li>
+				<li><strong>0.4</strong> - <code>banmode</code> is now <code>banMode</code>, breaking the public API.</li>
+				<li><strong>0.3.1</strong> - Improved event binding, Bower support.</li>
+				<li><strong>0.3</strong> - Banned password list support, better event binding.</li>
+				<li><strong>0.2</strong> - Unicode support.</li>
+				<li><strong>0.1</strong> - First release.</li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}

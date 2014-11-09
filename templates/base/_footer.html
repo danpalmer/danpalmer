@@ -1,0 +1,15 @@
+{% load staticfiles %}
+
+<div class="footer-content">
+	<div class="row">
+		<div class="col-md-6 col-sm-12 text-left text-muted">
+			<ul class="list-inline">
+				<li><a href="{% static "txt/pgp.txt" %}">PGP Key</a></li>
+				<li><a href="mailto:contact@danpalmer.me">Contact</a></li>
+			</ul>
+		</div>
+		<div class="col-md-6 col-sm-12 text-right text-muted">
+			{{ settings.COPYRIGHT }}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,48 @@
+{% extends "base/base.html" %}
+
+{% block body_container %}
+	<div class="row page-content">
+		<div class="col-md-6 col-sm-12">
+			<h1><a href="http://mondo-bills.herokuapp.com/">Mondo Subscription Tracker</a></h1>
+			<p class="lead">
+				Connect your Mondo account to see recurring subscriptions and bills.
+			</p>
+			<p>
+				Optimise your monthly outgoings, get notified if you're not going to have enough money to pay a subscription, and get notified if a cancelled subscription tries to bill you again.
+			</p>
+			<p>
+				<small>Built with Thomas Grainger and John Sandall at the 3rd Mondo hackathon.</small>
+			</p>
+		</div>
+		<div class="col-md-6 col-sm-12">
+			<h1><a href="http://mondo-loyalty.herokuapp.com/">Mondo Loyalty Balances</a></h1>
+			<p class="lead">
+				Connect your Mondo account to your Nectar or Marks &amp; Spencer loyalty scheme accounts to see your balances in your account feed.
+			</p>
+			<p>
+				Whenever you make a purchase at Sainsburys or M&amp;S, your new balance will be put into your Mondo feed, and you'll receive a push notification.
+			</p>
+			<p>
+				<small>Build at the 2nd Mondo hackathon.</small>
+			</p>
+		</div>
+		<div class="col-md-6 col-sm-12">
+			<h1><a href="{% url "projects:complexify:view" %}">jquery.complexify.js</a></h1>
+			<p class="lead">
+				Complexify makes it easy to inform users about the security of the passwords they are choosing on your site.
+			</p>
+			<p>
+				Instead of requiring numbers, capital letters, or punctuation, Complexify measures password quality based on the computational difficulty to break it.
+			</p>
+		</div>
+		<div class="col-md-6 col-sm-12">
+			<h1><a href="{% url "projects:charts:view" %}">django-google-charts</a></h1>
+			<p class="lead">
+				<em>django-google-charts</em> provides a pure Python API for creating charts for rendering in Django templates.
+			</p>
+			<p>
+				As charts are normal Python objects they can be subclassed and inherited just like any other, allowing for code re-use, while also abstracting away the details of rendering in order to provide a secure and easy way to render charts.
+			</p>
+		</div>
+	</div>
+{% endblock %}

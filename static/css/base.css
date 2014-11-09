@@ -1,0 +1,198 @@
+@font-face {
+  font-family: 'SFR';
+  src: url(/static/fonts/sf_regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SFT';
+  src: url(/static/fonts/sf_thin.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SFM';
+  src: url(/static/fonts/sf_medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SFB';
+  src: url(/static/fonts/sf_bold.ttf) format('truetype');
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'SFB';
+}
+body {
+    font-family: 'Open Sans';
+    font-size: 17px;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+.post-header {
+  width: 100%;
+  height: 500px;
+  display: block;
+  background-size: cover;
+}
+
+.post-header .title {
+  padding: 200px 100px 100px 100px;
+  color: white;
+}
+
+.post-header h1 {
+  font-size: 80px;
+  line-height: 94px;
+}
+
+.post-header .shadow {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.page-content {
+	margin-top: 50px;
+}
+
+.navbar-offset {
+  margin-top: 50px;
+}
+
+.title-content-offset {
+  margin-top: 30px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  float: left;
+  margin-right: 15px;
+}
+
+footer {
+	margin-top: 40px;
+	margin-bottom: 30px;
+	border-top: 1px solid #e7e7e7;
+}
+
+.footer-content {
+	margin-top: 30px;
+}
+
+.navbar-transparent {
+  background-color: rgba(0,0,0,0.5);
+  border-bottom: none;
+}
+
+.navbar-transparent .navbar-brand,
+.navbar-transparent .nav > li > a {
+  color: white;
+}
+
+.navbar-transparent .nav > li > a:hover,
+.navbar-transparent .nav > li > a:focus {
+  background-color: rgba(255,255,255,0.3);
+}
+
+/* Bootstrap hacks for CSP */
+.progress-bar[data-value="0"] { width: 0% }
+.progress-bar[data-value="1"] { width: 1% }
+.progress-bar[data-value="2"] { width: 2% }
+.progress-bar[data-value="3"] { width: 3% }
+.progress-bar[data-value="4"] { width: 4% }
+.progress-bar[data-value="5"] { width: 5% }
+.progress-bar[data-value="6"] { width: 6% }
+.progress-bar[data-value="7"] { width: 7% }
+.progress-bar[data-value="8"] { width: 8% }
+.progress-bar[data-value="9"] { width: 9% }
+.progress-bar[data-value="10"] { width: 10% }
+.progress-bar[data-value="11"] { width: 11% }
+.progress-bar[data-value="12"] { width: 12% }
+.progress-bar[data-value="13"] { width: 13% }
+.progress-bar[data-value="14"] { width: 14% }
+.progress-bar[data-value="15"] { width: 15% }
+.progress-bar[data-value="16"] { width: 16% }
+.progress-bar[data-value="17"] { width: 17% }
+.progress-bar[data-value="18"] { width: 18% }
+.progress-bar[data-value="19"] { width: 19% }
+.progress-bar[data-value="20"] { width: 20% }
+.progress-bar[data-value="21"] { width: 21% }
+.progress-bar[data-value="22"] { width: 22% }
+.progress-bar[data-value="23"] { width: 23% }
+.progress-bar[data-value="24"] { width: 24% }
+.progress-bar[data-value="25"] { width: 25% }
+.progress-bar[data-value="26"] { width: 26% }
+.progress-bar[data-value="27"] { width: 27% }
+.progress-bar[data-value="28"] { width: 28% }
+.progress-bar[data-value="29"] { width: 29% }
+.progress-bar[data-value="30"] { width: 30% }
+.progress-bar[data-value="31"] { width: 31% }
+.progress-bar[data-value="32"] { width: 32% }
+.progress-bar[data-value="33"] { width: 33% }
+.progress-bar[data-value="34"] { width: 34% }
+.progress-bar[data-value="35"] { width: 35% }
+.progress-bar[data-value="36"] { width: 36% }
+.progress-bar[data-value="37"] { width: 37% }
+.progress-bar[data-value="38"] { width: 38% }
+.progress-bar[data-value="39"] { width: 39% }
+.progress-bar[data-value="40"] { width: 40% }
+.progress-bar[data-value="41"] { width: 41% }
+.progress-bar[data-value="42"] { width: 42% }
+.progress-bar[data-value="43"] { width: 43% }
+.progress-bar[data-value="44"] { width: 44% }
+.progress-bar[data-value="45"] { width: 45% }
+.progress-bar[data-value="46"] { width: 46% }
+.progress-bar[data-value="47"] { width: 47% }
+.progress-bar[data-value="48"] { width: 48% }
+.progress-bar[data-value="49"] { width: 49% }
+.progress-bar[data-value="50"] { width: 50% }
+.progress-bar[data-value="51"] { width: 51% }
+.progress-bar[data-value="52"] { width: 52% }
+.progress-bar[data-value="53"] { width: 53% }
+.progress-bar[data-value="54"] { width: 54% }
+.progress-bar[data-value="55"] { width: 55% }
+.progress-bar[data-value="56"] { width: 56% }
+.progress-bar[data-value="57"] { width: 57% }
+.progress-bar[data-value="58"] { width: 58% }
+.progress-bar[data-value="59"] { width: 59% }
+.progress-bar[data-value="60"] { width: 60% }
+.progress-bar[data-value="61"] { width: 61% }
+.progress-bar[data-value="62"] { width: 62% }
+.progress-bar[data-value="63"] { width: 63% }
+.progress-bar[data-value="64"] { width: 64% }
+.progress-bar[data-value="65"] { width: 65% }
+.progress-bar[data-value="66"] { width: 66% }
+.progress-bar[data-value="67"] { width: 67% }
+.progress-bar[data-value="68"] { width: 68% }
+.progress-bar[data-value="69"] { width: 69% }
+.progress-bar[data-value="70"] { width: 70% }
+.progress-bar[data-value="71"] { width: 71% }
+.progress-bar[data-value="72"] { width: 72% }
+.progress-bar[data-value="73"] { width: 73% }
+.progress-bar[data-value="74"] { width: 74% }
+.progress-bar[data-value="75"] { width: 75% }
+.progress-bar[data-value="76"] { width: 76% }
+.progress-bar[data-value="77"] { width: 77% }
+.progress-bar[data-value="78"] { width: 78% }
+.progress-bar[data-value="79"] { width: 79% }
+.progress-bar[data-value="80"] { width: 80% }
+.progress-bar[data-value="81"] { width: 81% }
+.progress-bar[data-value="82"] { width: 82% }
+.progress-bar[data-value="83"] { width: 83% }
+.progress-bar[data-value="84"] { width: 84% }
+.progress-bar[data-value="85"] { width: 85% }
+.progress-bar[data-value="86"] { width: 86% }
+.progress-bar[data-value="87"] { width: 87% }
+.progress-bar[data-value="88"] { width: 88% }
+.progress-bar[data-value="89"] { width: 89% }
+.progress-bar[data-value="90"] { width: 90% }
+.progress-bar[data-value="91"] { width: 91% }
+.progress-bar[data-value="92"] { width: 92% }
+.progress-bar[data-value="93"] { width: 93% }
+.progress-bar[data-value="94"] { width: 94% }
+.progress-bar[data-value="95"] { width: 95% }
+.progress-bar[data-value="96"] { width: 96% }
+.progress-bar[data-value="97"] { width: 97% }
+.progress-bar[data-value="98"] { width: 98% }
+.progress-bar[data-value="99"] { width: 99% }
+.progress-bar[data-value="100"] { width: 100% }

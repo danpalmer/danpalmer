@@ -1,0 +1,19 @@
+bcrypt==1.1.1
+cffi==1.1.0
+cssutils==1.0
+django-bootstrap3==5.4.0
+django-extensions==1.5.5
+django-grappelli==2.6.5
+django-markdown-deux==1.0.5
+django-s3-storage==0.9.0
+Django==1.8.2
+gunicorn==19.4.5
+https://github.com/danpalmer/django-enumfield/archive/master.tar.gz
+https://github.com/danpalmer/django-google-charts/archive/master.tar.gz
+https://github.com/trentm/python-markdown2/archive/596d48b4279259561ca96329538c65de4c00edde.tar.gz
+pillow==3.2.0
+pip==8.1.1 # If updating, remember to update pip in Dockerfile.base
+psycopg2==2.6.1
+raven==5.13.0
+requests==2.9.1
+weasyprint==0.27

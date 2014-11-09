@@ -1,0 +1,39 @@
+{% extends "base/base.html" %}
+
+{% load markdown_deux_tags %}
+{% load blog %}
+
+{% block nav_classes %}
+	{% if post.header_image %}
+		navbar-transparent
+	{% else %}
+		{{ block.super }}
+	{% endif %}
+{% endblock %}
+
+{% block body %}
+	{% if post.header_image %}
+		<div class="post-header" style="background-image: url({{ post.header_image.url }});">
+			<div class="title">
+				<h1><span class="shadow">{{ post.title }}</span></h1>
+			</div>
+		</div>
+	{% endif %}
+	<div class="container page-content">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 col-sm-12">
+				{% if not post.header_image %}
+					<div class="page-header">
+						<h1>{{ post.title }}</h1>
+					</div>
+				{% endif %}
+				<div class="post-body">
+					{{ post.content|render_images|markdown }}
+				</div>
+				{% if request.user.is_superuser %}
+					<a href="{% url "admin:blog_post_change" post.pk %}">Edit</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

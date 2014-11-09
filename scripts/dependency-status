@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+BASE=$(git rev-parse --show-cdup)
+
+echo "Base requirements"
+piprot --outdated ${BASE}requirements/base.txt
+
+echo ""
+echo "Testing requirements"
+piprot --outdated ${BASE}requirements/test.txt

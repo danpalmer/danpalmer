@@ -1,0 +1,22 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block body_container %}
+	<div class="row page-content">
+		<div class="col-md-6 col-sm-12">
+			<p class="lead">
+	    	I'm a software developer at <a href="https://www.thread.com/">Thread</a> in London, and a University of Southampton alumni where I studied <mark>Computer Science</mark>, specialising in <mark>Mobile and Secure Systems</mark>.
+			</p>
+			<img src="{% static "images/avatar.png" %}" alt="Dan Palmer" class="avatar">
+			<p>
+				I tweet at <a href="https://twitter.com/danpalmer">@danpalmer</a> and can be found on <a href="https://github.com/danpalmer">GitHub</a>. I apply solid engineering principles to construct maintainable systems with great development processes. I'm learning Haskell, and have an interest in distributed systems.
+			</p>
+		</div>
+		<div class="col-md-6 col-sm-12">
+			{% for post in posts %}
+				{% include "blog/_post_list_item.html" %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
