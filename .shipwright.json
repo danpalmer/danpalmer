@@ -3,7 +3,7 @@
     "namespace": "danpalmer",
     "names": {
         "/Dockerfile.base": "danpalmer/danpalmer.base",
-        "/Dockerfile.deploy": "danpalmer/danpalmer",
-        "/Dockerfile.run": "danpalmer/danpalmer.run"
+        "/Dockerfile.run": "danpalmer/danpalmer.run",
+        "/Dockerfile": "danpalmer/danpalmer"
     }
 }
