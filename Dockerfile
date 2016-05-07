@@ -7,4 +7,4 @@ RUN mkdir /app/staticfiles
 RUN /app/manage.py collectstatic --noinput --clear
 
 EXPOSE 80
-CMD ["gunicorn", "danpalmer.wsgi:application"]
+CMD ["gunicorn", "-b", "127.0.0.1:80", "danpalmer.wsgi:application"]
