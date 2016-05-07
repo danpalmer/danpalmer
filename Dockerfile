@@ -1,7 +1,8 @@
 FROM danpalmer/danpalmer.base
 
 ADD . /app
-RUN pip install /app
+WORKDIR /app
+RUN pip install .
 
 RUN mkdir /app/staticfiles
 RUN /app/manage.py collectstatic --noinput --clear
